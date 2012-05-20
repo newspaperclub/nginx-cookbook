@@ -19,7 +19,7 @@
 #
 
 
-if node[:nginx][:ppa_package]
+if platform == "ubuntu" && node[:nginx][:ppa_package]
   include_recipe "apt"
 
   apt_repository "nginx-stable" do
