@@ -28,6 +28,7 @@ if platform == "ubuntu" && node[:nginx][:ppa_package]
     components ["main"]
     keyserver "keyserver.ubuntu.com"
     key "C300EE8C"
+    notifies :run, resources(:execute => "apt-get update"), :immediately
   end
 
   package node[:nginx][:ppa_package]
